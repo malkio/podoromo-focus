@@ -1,42 +1,81 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  font-family: 'Fira Code', monospace;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.App {
+	 height: 100vh;
+	overflow: scroll;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.theme-POMODORO {
+	background-color: #ff3b30;
+}
+.theme-SHORT_BREAK {
+	background-color: green;
+}
+.theme-LONG_BREAK {
+	background-color:yellow;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.container {
+	max-width: 644px;
+	width: 100%;
+	margin: 0 auto;
+	display: block;
+	/* background-color: rgba(255,255,255,0.1); */
+	padding: 1px;
+}
+.header {
+	text-align: left;
+	border-bottom: 2px solid rgba(0,0,0,0.2);
+	padding: 4px 10px;
+}
+.main {
+	padding: 20px 0 30px;
+	width: 100%;
+	max-width: 480px;
+	background-color: rgba(255,255,255,0.2);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 30px auto 0 auto;
+	border-radius: 4px;
 }
 
-.card {
-  padding: 2em;
+.main-top {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
 }
 
-.read-the-docs {
-  color: #888;
+.main-bottom {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
+.main .main-bottom button {
+	width: 250px;
+	padding: 14px;
+	margin: 4px;
+}
+
+.main button {
+	margin: 0 4px;
+	font-size: 16px;
+	padding: 6px 10px;
+}
+
+.main h1 {
+	font-size: 6.5em;
+	margin: 0.2em auto;
+
+}
+
+.main button.selected {
+	background-color:  rgba(0,0,0,0.2);
+}
+
