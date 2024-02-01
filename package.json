@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": ".",
+  "homepage": "https://malkio.github.io/podoromo-focus/",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
