@@ -39,7 +39,7 @@ function App() {
 					onClick={handleOnClick}
 				/>
 				<p>{INSTRUCTION}</p>
-
+				<TasksContainer />
 			</div>
 		</div>
 	)
@@ -90,10 +90,47 @@ const Main = (props: IMainProps) => {
 			<h1>{formatTime(timeLeft)}</h1>
 
 			<div className="main-bottom">
-				<button onClick={toggleOnOff}>{isRunning ? 'STOP': 'START'}</button>
+				<button onClick={toggleOnOff}>{isRunning ? 'PAUSE': 'START'}</button>
 				<button onClick={handleReset}>RESET</button>
 			</div>
 		</div>
 	)
 }
+
+const TasksContainer = () => {
+	const [list, setList] = useState(() => JSON.parse(localStorage.getItem('tasks') || '[]') );
+	const [newTask, setNewTask] = useState('');
+	// add styling
+
+	const handleOnClick = () => {
+		if (newTask && newTask.length != 0) {
+			const newList = [...list, newTask];
+			setList(newList);
+			localStorage.setItem('tasks', JSON.stringify(newList));
+			setNewTask('');
+		}
+	}
+
+	return (
+		<div className="tasks-container">
+			<h2>Tasks</h2>
+			<input type="text" onChange={(e)=> setNewTask(e.target.value)} />
+			<button onClick={handleOnClick}>ADD</button>
+
+			{ list.map((task: any, index: number) => {
+				return <span
+					key={index}
+					style={{
+						display: 'block',
+						width: 300,
+						padding: 4,
+						margin: '10px auto',
+						fontSize: 24,
+						textTransform: 'uppercase'
+					}}>{task}</span>
+			}) }
+		</div>
+	)
+};
+
 export default App
